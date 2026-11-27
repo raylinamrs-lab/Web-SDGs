@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAUGHT HER! - Web SDGs Ray 92/33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Shantell+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="thief.css">
+</head>
+<body>
+
+    <div class="room-bg">
+        <div class="window w-left"></div>
+        <div class="window w-right"></div>
+        <div class="floor"></div>
+    </div>
+
+    <main class="scene-wrap">
+        <div class="top-banner">
+            <span class="tag">🚨 SECRET HIDEOUT FOUND!</span>
+            <h1 id="sceneTitle">AHA! She was hiding inside the Study Hall!</h1>
+            <p id="sceneSub" class="scene-sub">Watch the superhero catch the Mona Lisa thief...</p>
+        </div>
+
+        <div class="stage">
+            <div id="step1" class="actor-card active">
+                <div class="speech-bubble">Hehe, nobody will find the Mona Lisa here— WAIT WHAT?! 😱</div>
+                <img src="4.png" alt="Scene 1" class="actor-img">
+            </div>
+
+            <div id="step2" class="actor-card">
+                <div class="speech-bubble hero-bubble">STOP RIGHT THERE! Justice for Art & SDGs! ⚡🦸‍♀️</div>
+                <img src="5.png" alt="Scene 2" class="actor-img">
+            </div>
+
+            <div id="step3" class="actor-card">
+                <div class="speech-bubble win-bubble">MISSION ACCOMPLISHED! The Mona Lisa is safe! 🎉🖼️</div>
+                <img src="6.png" alt="Scene 3" class="actor-img">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="replayBtn" class="btn-secondary">↻ Replay Action</button>
+            <a href="index.html" class="btn-primary">← Back to Town Map</a>
+        </div>
+    </main>
+
+    <script>
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const step3 = document.getElementById('step3');
+        const sceneTitle = document.getElementById('sceneTitle');
+        const sceneSub = document.getElementById('sceneSub');
+        const replayBtn = document.getElementById('replayBtn');
+
+        let t1, t2;
+
+        function playCatchAnimation() {
+            clearTimeout(t1);
+            clearTimeout(t2);
+
+            step1.classList.add('active');
+            step2.classList.remove('active');
+            step3.classList.remove('active');
+            sceneTitle.textContent = "AHA! She was hiding inside the Study Hall!";
+            sceneSub.textContent = "Step 1: The thief gets cornered!";
+
+            t1 = setTimeout(() => {
+                step1.classList.remove('active');
+                step2.classList.add('active');
+                sceneTitle.textContent = "SUPERHERO TO THE RESCUE! 💥";
+                sceneSub.textContent = "Step 2: Moving in to catch the culprit!";
+            }, 2600);
+
+            t2 = setTimeout(() => {
+                step2.classList.remove('active');
+                step3.classList.add('active');
+                sceneTitle.textContent = "CASE CLOSED! YOU CAUGHT HER! 🎉";
+                sceneSub.textContent = "The Mona Lisa is back safely. Great job, Detective!";
+            }, 5200);
+        }
+
+        playCatchAnimation();
+        replayBtn.addEventListener('click', playCatchAnimation);
+    </script>
+</body>
+</html>

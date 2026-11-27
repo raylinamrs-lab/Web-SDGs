@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web SDGs - Ray 92/33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Cinzel:wght@600;700;800&family=Shantell+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- layar awal (intro) -->
+    <div id="intro" class="intro-overlay">
+        <div class="blur-bg"></div>
+
+        <div class="intro-box">
+            <h1>
+                HELP! A thief has stolen the <span class="mona-oval">Mona Lisa!</span><br>
+                CATCH HER BEFORE IT'S TOO LATE! 😨
+            </h1>
+            <p class="sub">Find the culprit in one of these houses!</p>
+
+            <div class="thief-wrap">
+                <span class="sparkle s1">✦</span>
+                <span class="sparkle s2">✧</span>
+                <span class="sparkle s3">✦</span>
+                <img src="thief.png" alt="Mona Lisa thief" class="thief-img">
+            </div>
+
+            <button id="startBtn" class="btn-start">
+                Start <span>!</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- area kota utama -->
+    <main id="townArea" class="town-area">
+        <img src="download (2).jpg" alt="Town Map" class="town-bg">
+
+        <!-- tombol hotspot ikon rumah (kiri atas) -> beranda.html -->
+        <a href="beranda.html" class="icon-hotspot home-spot" title="Beranda"></a>
+
+        <!-- tombol hotspot ikon badan orang + (kanan atas) -> abtme.html -->
+        <a href="abtme.html" class="icon-hotspot newpage-spot" title="About Me"></a>
+
+        <!-- tombol-tombol di atas bangunan -->
+        <a href="sdg1.html" class="house-btn" style="top: 22%; left: 16%;">
+            🏠 SDG 1
+        </a>
+
+        <a href="sdg3.html" class="house-btn" style="top: 45%; left: 42%;">
+            🏥 SDG 3
+        </a>
+
+        <a href="kerjasama.html" class="house-btn" style="top: 17%; left: 73%;">
+            🤝 Kerjasama
+        </a>
+
+        <!-- Sumber tetap pop-up -->
+        <button id="sumberBtn" class="house-btn" style="top: 72%; left: 48%;">
+            📚 Sumber
+        </button>
+
+        <!-- tombol misteri ??? -> thief.html -->
+        <a href="thief.html" class="house-btn mystery-btn" style="top: 48%; left: 77%;">
+            ❓ ???
+        </a>
+    </main>
+
+    <!-- tombol Done Reading di kanan bawah -->
+    <button id="doneBtn" class="done-btn">
+        Done Reading ✔
+    </button>
+
+    <!-- pop-up khusus Sumber -->
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="closeModal" class="close-btn">✕</button>
+            <span class="modal-badge">📖 Daftar Pustaka & Referensi</span>
+            <h2>Sumber Informasi</h2>
+            <p class="modal-text">Berikut sumber yang digunakan dalam website ini:
+1. United Nations - Sustainable Development Goals (sdgs.un.org)
+2. Bappenas Indonesia - Portal SDGs Nasional
+3. Kementerian Luar Negeri RI</p>
+        </div>
+    </div>
+
+    <!-- layar post-credit ala cinema -->
+    <div id="doomsdayScreen" class="doomsday-overlay">
+        <div class="post-credit-box">
+            <p class="credit-word w1">THE THIEF</p>
+            <p class="credit-word w2">WILL RETURN</p>
+            <p class="credit-word w3">IN</p>
+            <h2 class="doomsday-title w4">AVENGERS: DOOMSDAY</h2>
+
+            <p id="openingNote" class="opening-note">Opening countdown in a new tab...</p>
+
+            <div class="doomsday-actions">
+                <a id="ytDirectLink" href="https://www.youtube.com/live/f17J3AXVK5w?si=MRW2QEdV-jBTbC7a" target="_blank" rel="noopener noreferrer" class="yt-link">
+                    Buka Countdown YouTube ↗
+                </a>
+                <button id="backToTownBtn" class="back-town-btn">
+                    ← Kembali ke Kota
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

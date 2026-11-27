@@ -1,0 +1,424 @@
+:root {
+  --cream: #fffaf3;
+  --white-glass: rgba(255, 255, 255, 0.94);
+  --ink: #342d40;
+  --ink-soft: #675e78;
+
+  /* Pastel tones matching kerjasama.png */
+  --sky: #d6ecff;
+  --sky-accent: #5294cf;
+  --pink: #ffdce9;
+  --pink-accent: #d46698;
+  --sage: #d6f3e4;
+  --sage-accent: #449673;
+  --butter: #fff0bf;
+  --butter-dashed: #d9a738;
+  --butter-accent: #b67f12;
+  --lavender: #ebe0ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 36px 20px 64px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background-color: var(--cream);
+  background-image: url("kerjasama.png");
+  background-repeat: repeat;
+  background-size: 270px auto;
+  background-attachment: fixed;
+}
+
+.page-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HERO SECTION (BUTTER YELLOW + DASHED OUTLINE)
+   ========================================= */
+.page-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: linear-gradient(135deg, #fff3c9 0%, #fffaf0 100%);
+  border: 2.5px dashed var(--butter-dashed);
+  border-radius: 28px;
+  padding: 28px 32px;
+  margin-bottom: 44px;
+  box-shadow: 0 10px 0 rgba(243, 214, 130, 0.45), 0 16px 32px rgba(96, 78, 128, 0.12);
+  backdrop-filter: blur(6px);
+  animation: popIn 0.6s ease both;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.page-hero h1 {
+  margin: 0 0 10px;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.55rem);
+  color: #4f380d;
+  line-height: 1.2;
+}
+
+.page-hero p {
+  margin: 0;
+  color: #695020;
+  font-size: 0.98rem;
+  max-width: 560px;
+}
+
+.hero-photo {
+  width: 230px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   LAYOUT: TABLE + SIDE PHOTO
+   ========================================= */
+.kerjasama-section {
+  margin-bottom: 46px;
+  animation: popIn 0.65s ease both;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 26px;
+  align-items: start;
+}
+
+.section-grid.reverse {
+  grid-template-columns: 260px 1fr;
+}
+
+.section-grid.reverse .table-card {
+  order: 2;
+}
+
+.section-grid.reverse .side-gallery {
+  order: 1;
+}
+
+/* =========================================
+   POLAROID PHOTO CARDS & HOVER ANIMATIONS
+   ========================================= */
+.side-gallery {
+  position: sticky;
+  top: 24px;
+}
+
+.polaroid {
+  background: #ffffff;
+  padding: 12px 12px 16px;
+  border-radius: 18px;
+  border: 2px dashed #d8c6ec;
+  box-shadow: 0 12px 24px rgba(85, 68, 117, 0.14);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.tilt-right {
+  transform: rotate(2.5deg);
+}
+
+.tilt-left {
+  transform: rotate(-2.5deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  box-shadow: 0 18px 32px rgba(85, 68, 117, 0.22);
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff5fa 0%, #eef7ff 50%, #f1fbf6 100%);
+  border: 1.5px dashed #d8c8eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-frame img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.polaroid:hover .photo-frame img {
+  transform: scale(1.08);
+}
+
+.photo-hint {
+  position: absolute;
+  z-index: 1;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #8c7ea6;
+}
+
+.polaroid-caption {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 0.9rem;
+  color: #5b4d70;
+}
+
+/* =========================================
+   TABLE CARD & THEME COLORS
+   ========================================= */
+.table-card {
+  background: var(--white-glass);
+  border-radius: 26px;
+  overflow: hidden;
+  border: 2.5px solid #e7dcf2;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 26px;
+}
+
+.num-badge {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px dashed currentColor;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.table-card:hover .num-badge {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.card-top h2 {
+  margin: 0 0 4px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.42rem;
+}
+
+.card-top p {
+  margin: 0;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+/* Theme 1: Sky Blue */
+.theme-blue .table-card {
+  border-color: #b7dcfb;
+  box-shadow: 0 9px 0 rgba(183, 220, 251, 0.55), 0 14px 28px rgba(82, 148, 207, 0.12);
+}
+.theme-blue .card-top {
+  background: var(--sky);
+  color: #214566;
+}
+.theme-blue .num-badge,
+.theme-blue a {
+  color: var(--sky-accent);
+}
+.theme-blue .kerjasama-table th {
+  background: #f2f8ff;
+  color: #214566;
+}
+
+/* Theme 2: Strawberry Pink */
+.theme-pink .table-card {
+  border-color: #f7c2da;
+  box-shadow: 0 9px 0 rgba(247, 194, 218, 0.55), 0 14px 28px rgba(212, 102, 152, 0.12);
+}
+.theme-pink .card-top {
+  background: var(--pink);
+  color: #662945;
+}
+.theme-pink .num-badge,
+.theme-pink a {
+  color: var(--pink-accent);
+}
+.theme-pink .kerjasama-table th {
+  background: #fff3f8;
+  color: #662945;
+}
+
+/* Theme 3: Mint Sage */
+.theme-sage .table-card {
+  border-color: #b7e6cf;
+  box-shadow: 0 9px 0 rgba(183, 230, 207, 0.55), 0 14px 28px rgba(68, 150, 115, 0.12);
+}
+.theme-sage .card-top {
+  background: var(--sage);
+  color: #20523c;
+}
+.theme-sage .num-badge,
+.theme-sage a {
+  color: var(--sage-accent);
+}
+.theme-sage .kerjasama-table th {
+  background: #f0fbf5;
+  color: #20523c;
+}
+
+/* Theme 4: Butter Yellow */
+.theme-butter .table-card {
+  border-color: #f3dc93;
+  box-shadow: 0 9px 0 rgba(243, 220, 147, 0.55), 0 14px 28px rgba(199, 147, 34, 0.12);
+}
+.theme-butter .card-top {
+  background: var(--butter);
+  color: #5e440f;
+}
+.theme-butter .num-badge,
+.theme-butter a {
+  color: var(--butter-accent);
+}
+.theme-butter .kerjasama-table th {
+  background: #fff9e6;
+  color: #5e440f;
+}
+
+/* =========================================
+   CLEAN TABLE STYLING + ROW HOVER
+   ========================================= */
+.kerjasama-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kerjasama-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.kerjasama-table tr:hover td {
+  background-color: #faf6ff;
+}
+
+.kerjasama-table th,
+.kerjasama-table td {
+  padding: 13px 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px dashed #e6daf0;
+  font-size: 0.93rem;
+}
+
+.kerjasama-table th {
+  width: 24%;
+  font-weight: 700;
+  border-right: 1px dashed #e6daf0;
+}
+
+.kerjasama-table ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.kerjasama-table li {
+  margin-bottom: 5px;
+}
+
+.kerjasama-table li:last-child {
+  margin-bottom: 0;
+}
+
+.kerjasama-table a {
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1.5px dashed currentColor;
+  transition: opacity 0.2s ease;
+}
+
+.kerjasama-table a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================
+   ENTRANCE ANIMATION
+   ========================================= */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 820px) {
+  .page-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-photo {
+    width: 240px;
+  }
+
+  .section-grid,
+  .section-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .section-grid.reverse .table-card,
+  .section-grid.reverse .side-gallery {
+    order: unset;
+  }
+
+  .side-gallery {
+    position: static;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .kerjasama-table th,
+  .kerjasama-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .kerjasama-table th {
+    border-right: none;
+    padding: 10px 18px 2px;
+    font-size: 0.83rem;
+  }
+
+  .kerjasama-table td {
+    border-top: none;
+    padding: 2px 18px 12px;
+  }
+}

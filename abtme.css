@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    /* Background abtme.jpg asli tanpa fade/overlay gelap */
+    background-image: url('abtme.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Box lebar di tengah dengan nuansa pastel lembut */
+.container {
+    background: rgba(255, 248, 252, 0.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid #f5d0fe;
+    border-radius: 28px;
+    padding: 45px 40px;
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    color: #4a3556;
+    box-shadow: 0 18px 40px rgba(168, 129, 175, 0.25);
+    animation: fadeIn 0.7s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-frame {
+    width: 145px;
+    height: 145px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #f9a8d4, #d8b4fe, #fed7aa);
+    box-shadow: 0 8px 20px rgba(216, 180, 254, 0.45);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    border: 3px solid #fffafc;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.nickname {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #4a3556;
+}
+
+.highlight {
+    color: #c084fc;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #8b6f9e;
+    margin-bottom: 28px;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.info-item {
+    background: #fdf4ff;
+    border: 1.5px solid #f3e8ff;
+    padding: 16px 22px;
+    border-radius: 18px;
+    text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.info-item:hover {
+    background: #fae8ff;
+    transform: translateY(-2px);
+}
+
+.funfact-box {
+    background: #fff1f2;
+    border-color: #ffe4e6;
+}
+
+.funfact-box:hover {
+    background: #ffe4e6;
+}
+
+.label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9d7bb0;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #4a3556;
+}
+
+.pastel-btn {
+    padding: 13px 32px;
+    border: 1.5px solid #e9d5ff;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #f9a8d4, #d8b4fe);
+    color: #4a3556;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(216, 180, 254, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pastel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(249, 168, 212, 0.55);
+}
+
+.hype-message {
+    font-size: 0.9rem;
+    color: #9333ea;
+    margin-top: 12px;
+    min-height: 22px;
+    font-weight: 700;
+}
+
+.footer-note {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1.5px solid #f3e8ff;
+    font-size: 0.92rem;
+    color: #5b436b;
+}
+
+.footer-note a {
+    color: #a855f7;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-note a:hover {
+    text-decoration: underline;
+}
+
+.copy-btn {
+    margin-top: 10px;
+    background: #f3e8ff;
+    color: #5b436b;
+    border: 1px solid #e9d5ff;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: #e9d5ff;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 32px 22px;
+    }
+    .info-row {
+        grid-template-columns: 1fr;
+    }
+    .nickname {
+        font-size: 1.75rem;
+    }
+}
